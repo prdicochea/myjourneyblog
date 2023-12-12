@@ -11,10 +11,16 @@ export type IBlogGalleryProps = {
   pagination: IPaginationProps;
 };
 
+const { zonedTimeToUtc, utcToZonedTime } = require('date-fns-tz');
+var utcDate;
+
+
+
 const BlogGallery = (props: IBlogGalleryProps) => (
   <>
     <ul>
       {props.posts.map((elt) => (
+
         <li key={elt.slug} className="mb-3 flex justify-between">
           <Link href="/posts/[slug]" as={`/posts/${elt.slug}`}>
             <a>
@@ -23,7 +29,10 @@ const BlogGallery = (props: IBlogGalleryProps) => (
           </Link>
 
           <div className="text-right">
-            {format(new Date(elt.date), 'LLL d, yyyy')}
+            {/* format(new Date(elt.date), 'LLL d, yyyy')*/
+              
+
+            } 
           </div>
         </li>
       ))}
